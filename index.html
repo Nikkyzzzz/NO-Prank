@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proposal</title>
+  <style>
+    body {
+      background-color: #fff;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+
+    #proposal-text {
+      font-size: 36px;
+      margin-top: 50px;
+    }
+
+    #background-image {
+      background-image: url(Tkthao219\ Bubududu\ Sticker\ -\ Tkthao219\ Bubududu\ Panda\ -\ Discover\ &\ Share\ GIFs.gif);
+      background-size: 18%;
+      background-repeat: no-repeat;
+      background-position: center top;
+      margin-top: 20px;
+      padding-top: 150px;
+    }
+
+    #buttons-container {
+      margin-top: 30px;
+    }
+
+    button {
+      background-color: #ff69b4;
+      color: white;
+      padding: 10px 20px;
+      font-size: 18px;
+      margin: 0 10px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      position: absolute; /* Position the button absolutely */
+    }
+  </style>
+</head>
+<body>
+  <br>
+  <h1>Send noods?</h1>
+  <div id="proposal-text">
+    <div id="background-image">
+      <br>
+      <br>
+    </div>
+  </div>
+
+  <div id="buttons-container">
+    <button id="noButton" onclick="sendNoods('No')">No</button>
+    <button onclick="sendNoods('Yes')">Yes</button>
+  </div>
+<script>
+  var yesButton = document.querySelector('#buttons-container button:last-child');
+  var noButton = document.getElementById('noButton');
+  var offset = 20; // Adjust the offset value as needed
+  var maxX = window.innerWidth - noButton.offsetWidth;
+  var maxY = window.innerHeight - noButton.offsetHeight;
+  var cursorApproachThreshold = 2; // Adjust the threshold for cursor approach
+
+  // Initialize the No button's position on the left side of the Yes button
+  noButton.style.left = (yesButton.getBoundingClientRect().left - noButton.offsetWidth - offset) + 'px';
+  noButton.style.top = yesButton.getBoundingClientRect().top + 'px';
+
+  document.addEventListener('mousemove', function(e) {
+    // Check if the cursor is approaching the No button and move it away
+    if (isCursorApproachingButton(e, noButton, cursorApproachThreshold)) {
+      moveButtonAway();
+    }
+  });
+
+  function moveButtonAway() {
+    var randomX = Math.random() * maxX;
+    var randomY = Math.random() * maxY;
+
+    noButton.style.transition = 'left 0.3s ease, top 0.3s ease';
+    noButton.style.left = randomX + 'px';
+    noButton.style.top = randomY + 'px';
+  }
+
+  function isCursorApproachingButton(e, button, threshold) {
+    var buttonRect = button.getBoundingClientRect();
+    var cursorX = e.clientX;
+    var cursorY = e.clientY;
+
+    var isApproachingX = cursorX >= buttonRect.left - threshold && cursorX <= buttonRect.right + threshold;
+    var isApproachingY = cursorY >= buttonRect.top - threshold && cursorY <= buttonRect.bottom + threshold;
+
+    return isApproachingX && isApproachingY;
+  }
+
+  function sendNoods(response) {
+    alert('You cannot put the cursor on the "No" button!');
+  }
+</script>
