@@ -1,4 +1,4 @@
-# [No Prank](https://example.com/questions)
+# [No Prank](https://nikkyzzzz.github.io/NO-Prank/)
 
 This project is a fun and playful "No Button Prank" web page. When users try to click the "No" button, it will move away, making it impossible to click. This project is perfect for surprising friends or just having a good laugh.
 
@@ -27,6 +27,6 @@ This project is open-source and available under the MIT License. Feel free to mo
 
 ## Credits
 
-Developed by [Your Name].
+Developed by [Nikita Patra].
 
 Enjoy pranking your friends!
